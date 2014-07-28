@@ -65,10 +65,11 @@ WSGI_APPLICATION = 'yimi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.*',
-        'NAME': '*',
-        'USER': '*',
-        'PASSWORD': '*',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': DB_HOST,
     }
 }
 
@@ -113,8 +114,8 @@ TOKEN_CACHE_PRE = 'yimi_access_token'
 
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'yimi_cache_table',
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
     }
 }
 
